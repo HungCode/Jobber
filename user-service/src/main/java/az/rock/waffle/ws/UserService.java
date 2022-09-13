@@ -2,14 +2,14 @@ package az.rock.waffle.ws;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.cloud.netflix.eureka.server.EnableEurekaServer;
+import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 import org.springframework.context.annotation.PropertySource;
 
+
 @SpringBootApplication
-@EnableEurekaServer
-@PropertySource(value = "classpath:discovery-application.properties")
-public class DiscoveryService {
+@EnableDiscoveryClient
+public class UserService {
     public static void main(String[] args) {
-        SpringApplication.run(DiscoveryService.class, args);
+        SpringApplication.run(UserService.class, args);
     }
 }
