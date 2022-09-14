@@ -16,6 +16,7 @@
         <module>recommend-service</module>
         <module>config-service</module>
         <module>common-service</module>
+        <module>zool-api-gateway</module>
     </modules>
 
     <properties>
@@ -23,13 +24,15 @@
         <maven.compiler.target>17</maven.compiler.target>
         <maven-compiler-plugin.version>3.9.0</maven-compiler-plugin.version>
         <com.netflix.eureka.version>1.10.17</com.netflix.eureka.version>
-        <org.springframework.cloud.version>3.1.4</org.springframework.cloud.version>
+        <spring-cloud.version>3.1.4</spring-cloud.version>
+        <spring-cloud-starter.version>2021.0.3</spring-cloud-starter.version>
         <spring-boot-starter-web.version>2.7.3</spring-boot-starter-web.version>
         <spring-security-core.version>5.7.3</spring-security-core.version>
         <spring-aop.version>5.3.22</spring-aop.version>
         <postgresql.version>42.5.0</postgresql.version>
         <spring-cloud-starter-netflix-hystrix.version>2.2.10.RELEASE</spring-cloud-starter-netflix-hystrix.version>
         <spring-cloud-starter-netflix-eureka-client.version>3.1.4</spring-cloud-starter-netflix-eureka-client.version>
+        <spring-zuul.version>2.2.10.RELEASE</spring-zuul.version>
     </properties>
 
     <parent>
@@ -38,101 +41,109 @@
         <version>2.7.3</version>
         <relativePath/>
     </parent>
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>javax.servlet</groupId>
+                <artifactId>javax.servlet-api</artifactId>
+                <version>4.0.1</version>
+                <scope>provided</scope>
+            </dependency>
+            <dependency>
+                <groupId>com.sun.jersey.contribs</groupId>
+                <artifactId>jersey-apache-client4</artifactId>
+                <version>1.19.4</version>
+            </dependency>
+            <dependency>
+                <groupId>org.projectlombok</groupId>
+                <artifactId>lombok</artifactId>
+                <scope>provided</scope>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter-logging</artifactId>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-starter-netflix-hystrix</artifactId>
+                <version>${spring-cloud-starter-netflix-hystrix.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
+                <version>${spring-cloud-starter-netflix-eureka-client.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-starter-netflix-eureka-server</artifactId>
+                <version>${spring-cloud.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-starter-loadbalancer</artifactId>
+                <version>${spring-cloud.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter-cache</artifactId>
+                <version>${spring-boot-starter-web.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework.security</groupId>
+                <artifactId>spring-security-core</artifactId>
+                <version>${spring-security-core.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework</groupId>
+                <artifactId>spring-aop</artifactId>
+                <version>${spring-aop.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter-web</artifactId>
+                <version>${spring-boot-starter-web.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.postgresql</groupId>
+                <artifactId>postgresql</artifactId>
+                <version>${postgresql.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-devtools</artifactId>
+                <scope>runtime</scope>
+                <version>${spring-boot-starter-web.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter-test</artifactId>
+                <scope>test</scope>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter-validation</artifactId>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-starter-netflix-zuul</artifactId>
+                <version>2.2.10.RELEASE</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-dependencies</artifactId>
+                <version>${spring-cloud-starter.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
 
-    <dependencies>
-        <dependency>
-            <groupId>javax.servlet</groupId>
-            <artifactId>javax.servlet-api</artifactId>
-            <version>4.0.1</version>
-            <scope>provided</scope>
-        </dependency>
-        <dependency>
-            <groupId>com.sun.jersey.contribs</groupId>
-            <artifactId>jersey-apache-client4</artifactId>
-            <version>1.19.4</version>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-starter</artifactId>
-            <version>${org.springframework.cloud.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>org.projectlombok</groupId>
-            <artifactId>lombok</artifactId>
-            <scope>provided</scope>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-logging</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-starter-netflix-hystrix</artifactId>
-            <version>${spring-cloud-starter-netflix-hystrix.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
-            <version>${spring-cloud-starter-netflix-eureka-client.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-starter-netflix-eureka-server</artifactId>
-            <version>${org.springframework.cloud.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-starter-loadbalancer</artifactId>
-            <version>${org.springframework.cloud.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-cache</artifactId>
-            <version>${spring-boot-starter-web.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework.security</groupId>
-            <artifactId>spring-security-core</artifactId>
-            <version>${spring-security-core.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework</groupId>
-            <artifactId>spring-aop</artifactId>
-            <version>${spring-aop.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-web</artifactId>
-            <version>${spring-boot-starter-web.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>org.postgresql</groupId>
-            <artifactId>postgresql</artifactId>
-            <version>${postgresql.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-devtools</artifactId>
-            <version>${spring-boot-starter-web.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-test</artifactId>
-            <scope>test</scope>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-validation</artifactId>
-        </dependency>
-
-        <!-- Dependency injection For Moduls-->
-        <dependency>
-            <groupId>az.rock.waffle.ws</groupId>
-            <artifactId>common-service</artifactId>
-            <version>${project.version}</version>
-        </dependency>
-    </dependencies>
-
+            <!-- Dependency injection For Moduls-->
+            <dependency>
+                <groupId>az.rock.waffle.ws</groupId>
+                <artifactId>common-service</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
     <build>
         <plugins>
             <plugin>
