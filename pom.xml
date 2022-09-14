@@ -33,7 +33,7 @@
         <maven-compiler-plugin.version>3.9.0</maven-compiler-plugin.version>
         <com.netflix.eureka.version>1.10.17</com.netflix.eureka.version>
         <spring-cloud.version>3.1.4</spring-cloud.version>
-        <spring-cloud-starter.version>2021.0.3</spring-cloud-starter.version>
+        <spring-cloud-starter.version>2021.0.4</spring-cloud-starter.version>
         <spring-boot-starter-web.version>2.7.3</spring-boot-starter-web.version>
         <spring-security-core.version>5.7.3</spring-security-core.version>
         <spring-aop.version>5.3.22</spring-aop.version>
