@@ -1,4 +1,4 @@
-package az.rock.waffle.ws.api;
+package az.rock.waffle.ws.application.rest;
 
 import az.rock.waffle.ws.response.GResponse;
 import az.rock.waffle.ws.response.ResponseData;
@@ -11,9 +11,9 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping(value = "/users/get/", method = RequestMethod.GET, produces = { "application/json"})
+@RequestMapping(value = "/get/", method = RequestMethod.GET, produces = { "application/json"},consumes = {"application/json"})
 @RequiredArgsConstructor
-public class UsersGetController {
+public class GetController {
     private final AbstractSuccessGResponseFactory<ResponseData> responseFactory;
 
 

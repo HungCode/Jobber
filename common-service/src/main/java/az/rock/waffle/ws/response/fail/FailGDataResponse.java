@@ -18,6 +18,7 @@ public class FailGDataResponse<T> extends GDataResponse<T> {
         this("Fail", httpStatusCode, data);
     }
 
+
     public FailGDataResponse( T data) {
         this("Fail", "500 Internal Server Error", data);
     }

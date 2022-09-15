@@ -1,4 +1,4 @@
-package az.rock.waffle.ws.config;
+package az.rock.waffle.ws.container;
 
 import az.rock.waffle.ws.response.ResponseData;
 import az.rock.waffle.ws.response.factory.AbstractFailGResponseFactory;
