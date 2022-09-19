@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping(value = "/get/", method = RequestMethod.GET, produces = { "application/json"},consumes = {"application/json"})
+@RequestMapping(value = "/users/get/", method = RequestMethod.GET, produces = { "application/json"},consumes = {"application/json"})
 @RequiredArgsConstructor
 public class GetController {
     private final AbstractSuccessGResponseFactory<ResponseData> responseFactory;

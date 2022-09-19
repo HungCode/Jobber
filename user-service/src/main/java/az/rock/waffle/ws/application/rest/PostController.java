@@ -13,19 +13,16 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping(value = "/post/", method = RequestMethod.POST, produces = { "application/json"},consumes = {"application/json"})
+@RequestMapping(value = "/users/post/", method = RequestMethod.POST, produces = { "application/json"},consumes = {"application/json"})
 @RequiredArgsConstructor
 public class PostController {
     private final AbstractSuccessGResponseFactory<ResponseData> responseFactory;
     private final UserService userService;
-
 
     @PostMapping(value = "registry")
     public ResponseEntity<GDataResponse<ResponseData>> registry(@RequestBody CreateUserCommand createUserCommand) {
         return new ResponseEntity<>(this.responseFactory
                 .createSuccessGDataResponse(this.userService.createUser(createUserCommand)),HttpStatus.CREATED);
     }
-
-
 
 }

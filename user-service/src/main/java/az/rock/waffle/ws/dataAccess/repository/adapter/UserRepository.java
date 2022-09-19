@@ -6,7 +6,6 @@ import az.rock.waffle.ws.domain.applicationService.ports.output.repository.Abstr
 import az.rock.waffle.ws.domain.core.entity.User;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
-import org.springframework.stereotype.Repository;
 
 @Component
 @RequiredArgsConstructor
@@ -19,8 +18,8 @@ public class UserRepository  implements AbstractUserRepository {
     @Override
     public User createUser(User user) {
         return this.userDataAccessMapper
-                .UserEntityToUser(this.userJpaRepository
+                .userEntityToUser(this.userJpaRepository
                         .save(this.userDataAccessMapper
-                                .UserToUserEntity(user)));
+                                .userToUserEntity(user)));
     }
 }

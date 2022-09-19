@@ -1,4 +1,4 @@
-package az.rock.waffle.ws.domain.core.exception;
+package az.rock.waffle.ws.domain.applicationService.exception;
 
 import az.rock.waffle.ws.exception.GRuntimeException;
 

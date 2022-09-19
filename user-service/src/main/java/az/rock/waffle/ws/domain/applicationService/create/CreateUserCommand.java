@@ -23,7 +23,7 @@ public class CreateUserCommand  {
     private final String email;
 
 
-    public CreateUserCommand(String username, String firstName, String lastName, String password, String email) {
+    public CreateUserCommand(UUID customerId, String username, String firstName, String lastName, String password, String email) {
         this.customerId = UUID.randomUUID();
         this.username = username;
         this.firstName = firstName;
