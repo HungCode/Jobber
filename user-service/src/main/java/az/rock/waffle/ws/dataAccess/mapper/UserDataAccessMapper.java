@@ -11,7 +11,10 @@ public class UserDataAccessMapper {
         return new User(new UserId(UserEntity.getId()),
                 UserEntity.getUsername(),
                 UserEntity.getFirstName(),
-                UserEntity.getLastName());
+                UserEntity.getLastName(),
+                UserEntity.getPassword(),
+                UserEntity.getEmail()
+        );
     }
 
     public UserEntity UserToUserEntity(User User) {

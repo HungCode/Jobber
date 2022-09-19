@@ -2,7 +2,7 @@ package az.rock.waffle.ws.domain.applicationService.ports.input.service;
 
 import az.rock.waffle.ws.domain.applicationService.create.CreateUserCommand;
 import az.rock.waffle.ws.domain.applicationService.mapper.UserDataMapper;
-import az.rock.waffle.ws.domain.applicationService.ports.output.repository.UserRepository;
+import az.rock.waffle.ws.domain.applicationService.ports.output.repository.AbstractUserRepository;
 import az.rock.waffle.ws.domain.core.entity.User;
 import az.rock.waffle.ws.domain.core.event.UserCreatedEvent;
 import az.rock.waffle.ws.domain.core.exception.UserDomainException;
@@ -20,7 +20,7 @@ import java.util.Objects;
 @RequiredArgsConstructor
 public class CreateUserCommandHandler {
     private final UserDomainService userDomainService;
-    private final UserRepository userRepository;
+    private final AbstractUserRepository userRepository;
     private final UserDataMapper userDataMapper;
 
 

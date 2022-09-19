@@ -1,6 +1,5 @@
 package az.rock.waffle.ws.domain.applicationService.create;
 
-import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
 
@@ -9,7 +8,6 @@ import java.util.UUID;
 
 @Getter
 @Builder
-@AllArgsConstructor
 public class CreateUserCommand  {
     @NotNull
     private final UUID customerId;
@@ -23,4 +21,14 @@ public class CreateUserCommand  {
     private final String password;
     @NotNull
     private final String email;
+
+
+    public CreateUserCommand(String username, String firstName, String lastName, String password, String email) {
+        this.customerId = UUID.randomUUID();
+        this.username = username;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.password = password;
+        this.email = email;
+    }
 }

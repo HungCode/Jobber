@@ -3,11 +3,13 @@ package az.rock.waffle.ws.domain.core.service;
 import az.rock.waffle.ws.domain.core.entity.User;
 import az.rock.waffle.ws.domain.core.event.UserCreatedEvent;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.stereotype.Service;
 
 import java.time.ZoneId;
 import java.time.ZonedDateTime;
 
 @Slf4j
+@Service
 public class UserDomainService implements AbstractUserDomainService{
     @Override
     public UserCreatedEvent validateAndInitializeUser(User user) {

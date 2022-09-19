@@ -19,12 +19,12 @@ import org.springframework.validation.annotation.Validated;
 public class UserManager implements UserService {
     private final CreateUserCommandHandler userCommandHandler;
     private final UserDataMapper userDataMapper;
-    private final UserMessagePublisher userMessagePublisher;
+    //private final UserMessagePublisher userMessagePublisher;
 
     @Override
     public CreateUserResponse createUser(CreateUserCommand userCommand) {
         UserCreatedEvent userCreatedEvent = this.userCommandHandler.createdEvent(userCommand);
-        userMessagePublisher.publish(userCreatedEvent);
+        //this.userMessagePublisher.publish(userCreatedEvent);
         return this.userDataMapper.userToCreateUserResponse(userCreatedEvent.getUser(),"User saved successfully!");
     }
 }
