@@ -15,7 +15,7 @@ public class UserCreatedEvent implements DomainEvent<User> {
         this.createdAt = createdAt;
     }
 
-    public User getCustomer() {
+    public User getUser() {
         return this.user;
     }
 }

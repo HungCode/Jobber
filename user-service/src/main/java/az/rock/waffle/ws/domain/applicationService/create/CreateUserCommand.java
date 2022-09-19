@@ -19,4 +19,8 @@ public class CreateUserCommand  {
     private final String firstName;
     @NotNull
     private final String lastName;
+    @NotNull
+    private final String password;
+    @NotNull
+    private final String email;
 }

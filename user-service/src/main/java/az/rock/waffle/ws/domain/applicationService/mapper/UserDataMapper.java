@@ -12,7 +12,10 @@ public class UserDataMapper {
         return new User(new UserId(createUserCommand.getCustomerId()),
                 createUserCommand.getUsername(),
                 createUserCommand.getFirstName(),
-                createUserCommand.getLastName());
+                createUserCommand.getLastName(),
+                createUserCommand.getPassword(),
+                createUserCommand.getEmail()
+        );
     }
 
     public CreateUserResponse userToCreateUserResponse(User customer, String message) {

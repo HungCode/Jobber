@@ -6,7 +6,7 @@ import org.springframework.context.annotation.Configuration;
 
 @Data
 @Configuration
-@ConfigurationProperties(prefix = "customer-service")
+@ConfigurationProperties(prefix = "user-service")
 public class UserServiceConfigData {
     private String userTopicName;
 }
