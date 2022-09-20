@@ -1,5 +1,6 @@
 package az.rock.waffle.ws.application.rest;
 
+import az.rock.waffle.ws.container.aspect.anno.JLogger;
 import az.rock.waffle.ws.domain.applicationService.create.CreateUserCommand;
 import az.rock.waffle.ws.domain.applicationService.create.CreateUserResponse;
 import az.rock.waffle.ws.domain.applicationService.ports.input.service.abst.UserService;
@@ -19,6 +20,7 @@ public class PostController {
     private final AbstractSuccessGResponseFactory<ResponseData> responseFactory;
     private final UserService userService;
 
+    @JLogger
     @PostMapping(value = "registry")
     public ResponseEntity<GDataResponse<ResponseData>> registry(@RequestBody CreateUserCommand createUserCommand) {
         return new ResponseEntity<>(this.responseFactory

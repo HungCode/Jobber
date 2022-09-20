@@ -1,5 +1,6 @@
 package az.rock.waffle.ws.application.rest;
 
+import az.rock.waffle.ws.container.aspect.anno.JLogger;
 import az.rock.waffle.ws.response.GResponse;
 import az.rock.waffle.ws.response.ResponseData;
 import az.rock.waffle.ws.response.factory.AbstractSuccessGResponseFactory;
@@ -17,6 +18,7 @@ public class GetController {
     private final AbstractSuccessGResponseFactory<ResponseData> responseFactory;
 
 
+    @JLogger
     @GetMapping(value = "apply")
     public ResponseEntity<GResponse> apply() {
         return ResponseEntity.ok(responseFactory.createSuccessGResponse());
