@@ -1,4 +1,8 @@
 package az.rock.waffle.ws.domain.applicationService.ports.input.service.conc;
 
-public class AuthManager {
+import az.rock.waffle.ws.domain.applicationService.ports.input.service.abst.AuthService;
+import org.springframework.stereotype.Component;
+
+@Component
+public class AuthManager implements AuthService {
 }

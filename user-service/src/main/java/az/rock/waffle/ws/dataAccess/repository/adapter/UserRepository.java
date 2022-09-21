@@ -22,4 +22,12 @@ public class UserRepository  implements AbstractUserRepository {
                         .save(this.userDataAccessMapper
                                 .userToUserEntity(user)));
     }
+
+    @Override
+    public User findByUsername(String userName) {
+        return this.userDataAccessMapper
+                .userEntityToUser(this.userJpaRepository.findByUsername(userName));
+    }
+
+
 }
