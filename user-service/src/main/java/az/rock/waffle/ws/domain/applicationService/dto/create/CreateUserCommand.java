@@ -1,5 +1,6 @@
-package az.rock.waffle.ws.domain.applicationService.create;
+package az.rock.waffle.ws.domain.applicationService.dto.create;
 
+import az.rock.waffle.ws.domain.applicationService.dto.Command;
 import lombok.Builder;
 import lombok.Getter;
 
@@ -8,7 +9,7 @@ import java.util.UUID;
 
 @Getter
 @Builder
-public class CreateUserCommand  {
+public class CreateUserCommand  implements Command {
     @NotNull
     private final UUID customerId;
     @NotNull

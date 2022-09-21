@@ -2,6 +2,8 @@ package az.rock.waffle.ws.container.aspect.conc;
 
 
 import lombok.extern.slf4j.Slf4j;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
@@ -22,7 +24,7 @@ public class JLoggerAspect {
         Instant start = Instant.now();
         Object proceed =  joinPoint.proceed();
         Instant end = Instant.now();
-        log.info("Method on IP : {} executing time : {}ms",this.getIpAddress(), Duration.between(start,end).toMillis());
+        log.info("JLoggerAspect : Method on IP : {} executing time : {}ms",this.getIpAddress(), Duration.between(start,end).toMillis());
         return proceed;
     }
 

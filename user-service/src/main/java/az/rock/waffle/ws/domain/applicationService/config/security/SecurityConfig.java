@@ -1,4 +1,4 @@
-package az.rock.waffle.ws.container.security;
+package az.rock.waffle.ws.domain.applicationService.config.security;
 
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.PropertySource;

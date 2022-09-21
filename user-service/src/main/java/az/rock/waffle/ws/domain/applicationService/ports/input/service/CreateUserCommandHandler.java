@@ -1,6 +1,6 @@
 package az.rock.waffle.ws.domain.applicationService.ports.input.service;
 
-import az.rock.waffle.ws.domain.applicationService.create.CreateUserCommand;
+import az.rock.waffle.ws.domain.applicationService.dto.create.CreateUserCommand;
 import az.rock.waffle.ws.domain.applicationService.mapper.UserDataMapper;
 import az.rock.waffle.ws.domain.applicationService.ports.output.repository.AbstractUserRepository;
 import az.rock.waffle.ws.domain.core.entity.User;
