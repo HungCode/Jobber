@@ -9,4 +9,9 @@ public record AuthUserCommand(
         this.username = username;
         this.password = password;
     }
+
+    @Override
+    public String toString() {
+        return this.username;
+    }
 }

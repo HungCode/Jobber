@@ -1,5 +1,7 @@
 package az.rock.waffle.ws.application.handler;
 
+import az.rock.waffle.ws.domain.applicationService.exception.security.UnknownSecurityException;
+import az.rock.waffle.ws.domain.applicationService.exception.security.UserNotFoundSecurityException;
 import az.rock.waffle.ws.exception.GException;
 import az.rock.waffle.ws.handler.GExceptionHandler;
 import az.rock.waffle.ws.response.ResponseData;
@@ -28,5 +30,22 @@ public class UserGExceptionHandler extends GExceptionHandler {
                         .createFailGDataResponse(null),HttpStatus.BAD_REQUEST );
     }
 
+    @ResponseBody
+    @ExceptionHandler(value = {UserNotFoundSecurityException.class})
+    public ResponseEntity<FailGDataResponse<?>> userNotFoundSecurityException(UserNotFoundSecurityException userDomainException) {
+        log.error(userDomainException.getMessage(), userDomainException);
+        return new ResponseEntity<>(
+                this.responseFactory
+                        .createFailGDataResponse(null),HttpStatus.BAD_REQUEST );
+    }
+
+    @ResponseBody
+    @ExceptionHandler(value = {UnknownSecurityException.class})
+    public ResponseEntity<FailGDataResponse<?>> userDomainException(UnknownSecurityException userDomainException) {
+        log.error(userDomainException.getMessage(), userDomainException);
+        return new ResponseEntity<>(
+                this.responseFactory
+                        .createFailGDataResponse(null),HttpStatus.BAD_REQUEST );
+    }
 
 }
