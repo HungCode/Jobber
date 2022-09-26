@@ -1,5 +1,7 @@
 package az.rock.waffle.ws.security;
 
+import io.jsonwebtoken.Jwts;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.cloud.gateway.filter.GatewayFilter;
 import org.springframework.cloud.gateway.filter.factory.AbstractGatewayFilterFactory;
 import org.springframework.http.HttpHeaders;
@@ -15,18 +17,25 @@ import java.util.Objects;
 @Component
 public class JAuthorizationHeaderFilter extends AbstractGatewayFilterFactory<JAuthorizationHeaderFilter.Config> {
 
+    @Value(value = "${rock.security-key}")
+    private String tokenKey;
+
+    public JAuthorizationHeaderFilter(){
+        super(Config.class);
+    }
     public static class Config{
 
     }
-
     @Override
     public GatewayFilter apply(Config config) {
         return ((exchange, chain) -> {
             ServerHttpRequest serverHttpRequest = exchange.getRequest();
-            if(!serverHttpRequest.getHeaders().containsKey(HttpHeaders.AUTHORIZATION)){
+            if(!serverHttpRequest.getHeaders().containsKey(HttpHeaders.AUTHORIZATION))
                 return fail(exchange,"No authorization header", HttpStatus.UNAUTHORIZED);
-            }
+
             String token = Objects.requireNonNull(serverHttpRequest.getHeaders().get(HttpHeaders.AUTHORIZATION)).get(0).replace("Bearer","");
+            if (!this.isValidToken(token))
+                return fail(exchange,"Token is not Valid!", HttpStatus.UNAUTHORIZED);
 
             return chain.filter(exchange);
         });
@@ -36,5 +45,14 @@ public class JAuthorizationHeaderFilter extends AbstractGatewayFilterFactory<JAu
         ServerHttpResponse serverHttpResponse = serverWebExchange.getResponse();
         serverHttpResponse.setStatusCode(httpStatus);
         return serverHttpResponse.setComplete();
+    }
+
+    private boolean isValidToken(String token){
+        String subject = Jwts.parser()
+                .setSigningKey(this.tokenKey)
+                .parseClaimsJws(token)
+                .getBody()
+                .getSubject();
+        return Objects.nonNull(subject) || subject.isEmpty();
     }
 }
