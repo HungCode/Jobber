@@ -1,14 +1,9 @@
 package az.rock.waffle.ws.domain.applicationService.config.security;
 
 import az.rock.waffle.ws.domain.applicationService.config.security.filter.JAuthenticationFilter;
-import az.rock.waffle.ws.domain.applicationService.config.security.handler.JAccessDeniedHandler;
-import az.rock.waffle.ws.domain.applicationService.config.security.handler.JAuthenticationFailureHandler;
 import az.rock.waffle.ws.domain.applicationService.exception.security.GUserDetailsService;
-import az.rock.waffle.ws.domain.applicationService.mapper.AuthDataMapper;
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.DependsOn;
 import org.springframework.context.annotation.PropertySource;
@@ -31,10 +26,13 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     @Value(value = "${rock.security-key}")
     private String securityKey;
 
+    @Value(value = "${rock.gateway.ip-address}")
+    private String gateway_ip;
+
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http.csrf().disable();
-        http.authorizeRequests().antMatchers("/**").hasIpAddress("127.0.0.1")
+        http.authorizeRequests().antMatchers("/**").hasIpAddress(this.gateway_ip)
                 .and()
                 .addFilter(this.getAuthenticationFilter())
                 .exceptionHandling()
@@ -52,8 +50,5 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         authenticationFilter.setFilterProcessesUrl("/users/auth/login");
         return authenticationFilter;
     }
-
-
-
 
 }
