@@ -22,6 +22,6 @@ public class SecurityBeanConfig {
 
     @Bean
     public AuthenticationEntryPoint authenticationEntryPoint() {
-        return new GAuthenticationEntryPoint();
+        return new JAuthenticationEntryPoint();
     }
 }
