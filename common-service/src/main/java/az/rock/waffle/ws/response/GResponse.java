@@ -5,14 +5,14 @@ import java.time.ZonedDateTime;
 import java.util.UUID;
 
 public abstract class GResponse {
-    private final UUID responseIdentifier;
+    private final UUID responseID;
     private final Boolean success;
     private final ZonedDateTime zonedDateTime;
     private final String message;
     private final String httpStatusCode;
 
     public GResponse(Boolean success, String message, String httpStatusCode) {
-        this.responseIdentifier = UUID.randomUUID();
+        this.responseID = UUID.randomUUID();
         this.success = success;
         this.zonedDateTime = ZonedDateTime.now(ZoneId.of("UTC"));
         this.message = message;
@@ -21,7 +21,7 @@ public abstract class GResponse {
 
 
     public GResponse(Boolean success, String httpStatusCode) {
-        this.responseIdentifier = UUID.randomUUID();
+        this.responseID = UUID.randomUUID();
         this.success = success;
         this.zonedDateTime = ZonedDateTime.now(ZoneId.of("UTC"));
         this.message = "";
@@ -29,7 +29,7 @@ public abstract class GResponse {
     }
 
     public GResponse(Boolean success) {
-        this.responseIdentifier = UUID.randomUUID();
+        this.responseID = UUID.randomUUID();
         this.success = success;
         this.zonedDateTime = ZonedDateTime.now(ZoneId.of("UTC"));
         this.message = "";
@@ -41,8 +41,8 @@ public abstract class GResponse {
     }
 
 
-    public UUID getResponseIdentifier() {
-        return responseIdentifier;
+    public UUID getResponseID() {
+        return responseID;
     }
 
     public Boolean getSuccess() {
