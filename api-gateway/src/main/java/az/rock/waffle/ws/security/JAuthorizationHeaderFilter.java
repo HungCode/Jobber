@@ -1,6 +1,8 @@
 package az.rock.waffle.ws.security;
 
+import az.rock.waffle.ws.exception.GAuthenticationException;
 import io.jsonwebtoken.Jwts;
+import io.jsonwebtoken.MalformedJwtException;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.cloud.gateway.filter.GatewayFilter;
 import org.springframework.cloud.gateway.filter.factory.AbstractGatewayFilterFactory;
@@ -48,11 +50,17 @@ public class JAuthorizationHeaderFilter extends AbstractGatewayFilterFactory<JAu
     }
 
     private boolean isValidToken(String token){
-        String subject = Jwts.parser()
-                .setSigningKey(this.tokenKey)
-                .parseClaimsJws(token)
-                .getBody()
-                .getSubject();
+        String subject = "";
+        try {
+            subject = Jwts.parser()
+                    .setSigningKey(this.tokenKey)
+                    .parseClaimsJws(token)
+                    .getBody()
+                    .getSubject();
+        }catch (MalformedJwtException malformedJwtException){
+            throw new GAuthenticationException();
+        }
+
         return Objects.nonNull(subject) || subject.isEmpty();
     }
 }
