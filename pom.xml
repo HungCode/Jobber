@@ -24,6 +24,8 @@
         <module>config-service</module>
         <module>common-service</module>
         <module>payment-service</module>
+        <module>company-service</module>
+        <module>vacancy-service</module>
     </modules>
 
     <properties>

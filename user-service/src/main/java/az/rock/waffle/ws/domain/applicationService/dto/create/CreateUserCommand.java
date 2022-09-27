@@ -1,26 +1,32 @@
 package az.rock.waffle.ws.domain.applicationService.dto.create;
 
 import az.rock.waffle.ws.domain.applicationService.dto.Command;
+import az.rock.waffle.ws.domain.applicationService.validator.anno.GEmail;
+import az.rock.waffle.ws.domain.applicationService.validator.anno.GFullName;
+import az.rock.waffle.ws.domain.applicationService.validator.anno.GPassword;
+import az.rock.waffle.ws.domain.applicationService.validator.anno.GUsername;
 import lombok.Builder;
 import lombok.Getter;
 
 import javax.validation.constraints.NotNull;
+import java.util.Locale;
 import java.util.UUID;
 
 @Getter
 @Builder
 public class CreateUserCommand  implements Command {
+
     @NotNull
     private final UUID customerId;
-    @NotNull
+    @GUsername
     private final String username;
-    @NotNull
+    @GFullName
     private final String firstName;
-    @NotNull
+    @GFullName
     private final String lastName;
-    @NotNull
+    @GPassword
     private final String password;
-    @NotNull
+    @GEmail
     private final String email;
 
 
@@ -32,4 +38,6 @@ public class CreateUserCommand  implements Command {
         this.password = password;
         this.email = email;
     }
+
+
 }
