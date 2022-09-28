@@ -6,9 +6,9 @@
     <file url="file://$PROJECT_DIR$/company-service/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/config-service/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/discovery-service/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/employee-service/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/payment-service/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/recommend-service/src/main/java" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/user-service/src/main/java" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/vacancy-service/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/user-registry-service/src/main/java" charset="UTF-8" />
   </component>
 </project>

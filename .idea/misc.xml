@@ -11,6 +11,7 @@
       <set>
         <option value="$PROJECT_DIR$/account-service/pom.xml" />
         <option value="$PROJECT_DIR$/producer-service/pom.xml" />
+        <option value="$PROJECT_DIR$/vacancy-service/pom.xml" />
         <option value="$PROJECT_DIR$/zool-api-gateway/pom.xml" />
       </set>
     </option>
