@@ -37,8 +37,8 @@ public class JAuthenticationFilter extends UsernamePasswordAuthenticationFilter 
                     .readValue(request.getInputStream(),AuthUserCommand.class);
             return getAuthenticationManager()
                     .authenticate(new UsernamePasswordAuthenticationToken(
-                            authUserCommand.username(),
-                            authUserCommand.password(),
+                            authUserCommand.getUsername(),
+                            authUserCommand.getPassword(),
                             new ArrayList<>()));
         } catch (IOException e) {
             throw new UserNotFoundSecurityException();
@@ -50,11 +50,11 @@ public class JAuthenticationFilter extends UsernamePasswordAuthenticationFilter 
                                             FilterChain chain, Authentication authResult) throws IOException, ServletException {
         UserRoot userRoot = this.gUserDetailsService.matches(authResult);
         String token = Jwts.builder()
-                .setSubject(userRoot.getUsername())
+                .setSubject(userRoot.getFinIdentify().toString())
                 .setExpiration(new Date(System.currentTimeMillis() + Long.parseLong(this.gUserDetailsService.getTokenExpDate())))
                 .signWith(SignatureAlgorithm.HS512,this.gUserDetailsService.getSecurityKey())
                 .compact();
-        response.addHeader("token",token);
-        response.addHeader("uuid", userRoot.getUsername());
+        response.addHeader("Token",token);
+        response.addHeader("ID", userRoot.getId().toString());
     }
 }

@@ -20,7 +20,6 @@ import java.util.Objects;
 @Getter
 public class GUserDetailsService implements UserDetailsService {
 
-    private final AuthDataMapper authDataMapper;
     private final PasswordEncoder passwordEncoder;
     private final AbstractUserRepository userRepository;
 
