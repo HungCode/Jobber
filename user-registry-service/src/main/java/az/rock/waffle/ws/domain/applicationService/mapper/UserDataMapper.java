@@ -14,7 +14,7 @@ public class UserDataMapper {
                 createUserCommand.getFirstName(),
                 createUserCommand.getLastName(),
                 createUserCommand.getPassword(),
-                createUserCommand.getEmail()
+                createUserCommand.getEmail(),createUserCommand.getUserType()
         );
     }
 

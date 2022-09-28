@@ -5,6 +5,7 @@ import az.rock.waffle.ws.domain.applicationService.dto.create.CreateUserResponse
 import az.rock.waffle.ws.domain.applicationService.mapper.UserDataMapper;
 import az.rock.waffle.ws.domain.applicationService.ports.input.service.CreateUserCommandHandler;
 import az.rock.waffle.ws.domain.applicationService.ports.input.service.abst.UserService;
+import az.rock.waffle.ws.domain.applicationService.ports.output.publisher.UserMessagePublisher;
 import az.rock.waffle.ws.domain.core.event.UserCreatedEvent;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -18,12 +19,12 @@ import org.springframework.validation.annotation.Validated;
 public class UserManager implements UserService {
     private final CreateUserCommandHandler userCommandHandler;
     private final UserDataMapper userDataMapper;
-    //private final UserMessagePublisher userMessagePublisher;
+    private final UserMessagePublisher userMessagePublisher;
 
     @Override
     public CreateUserResponse createUser(CreateUserCommand userCommand) {
         UserCreatedEvent userCreatedEvent = this.userCommandHandler.createdEvent(userCommand);
-        //this.userMessagePublisher.publish(userCreatedEvent);
+        this.userMessagePublisher.publish(userCreatedEvent);
         return this.userDataMapper.userToCreateUserResponse(userCreatedEvent.getUser(),"User saved successfully!");
     }
 }

@@ -2,12 +2,10 @@ package az.rock.waffle.ws.dataAccess.entity;
 import az.rock.waffle.ws.dataAccess.aop.anno.JUniqueEmail;
 import az.rock.waffle.ws.dataAccess.aop.anno.JUniqueUserName;
 import az.rock.waffle.ws.domain.applicationService.validator.anno.JNullable;
+import az.rock.waffle.ws.valueObject.UserType;
 import lombok.*;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.Pattern;
@@ -26,6 +24,9 @@ public class UserEntity {
     @Column(name = "id", nullable = false,updatable = false,unique = true)
     private UUID id;
 
+    @Column(name = "finIdentify", nullable = false,updatable = false,unique = true)
+    private UUID finIdentify;
+
     @Column(name = "USERNAME",updatable = false)
     @JUniqueUserName
     private String username;
@@ -39,9 +40,14 @@ public class UserEntity {
     private String lastName;
 
     @JUniqueEmail
+    @Column(name = "EMAIL",nullable = false,unique = true)
     private String email;
 
     @Column(name = "PASSWORD",nullable = false)
     @Size(min = 6)  @NotEmpty
     private String password;
+
+    @Enumerated(EnumType.STRING)
+    @Column(name = "USER_TYPE", nullable = false,updatable = false)
+    private UserType userType;
 }

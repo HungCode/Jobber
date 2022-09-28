@@ -15,6 +15,6 @@ public class UserDomainService implements AbstractUserDomainService{
     public UserCreatedEvent validateAndInitializeUser(UserRoot userRoot) {
         //Any Business logic required to run for a customer creation
         log.info("Customer with id: {} is initiated", userRoot.getId().getValue());
-        return new UserCreatedEvent(userRoot, ZonedDateTime.now(ZoneId.of("UTC")));
+        return new UserCreatedEvent(userRoot, ZonedDateTime.now(ZoneId.of("UTC")), userRoot.getUserType());
     }
 }
