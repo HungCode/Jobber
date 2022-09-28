@@ -14,6 +14,6 @@ public class GUserTypeConstraint implements ConstraintValidator<GUserType, UserT
 
     @Override
     public boolean isValid(UserType value, ConstraintValidatorContext context) {
-        return false;
+        return true;
     }
 }

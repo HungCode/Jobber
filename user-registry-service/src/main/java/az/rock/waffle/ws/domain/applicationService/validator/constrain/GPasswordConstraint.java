@@ -15,7 +15,7 @@ public class GPasswordConstraint  implements ConstraintValidator<GPassword, Stri
 
     @Override
     public boolean isValid(String value, ConstraintValidatorContext context) {
-        return false;
+        return true;
     }
 }
 

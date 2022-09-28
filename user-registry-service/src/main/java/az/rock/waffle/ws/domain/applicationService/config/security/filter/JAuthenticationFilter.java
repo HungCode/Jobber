@@ -37,11 +37,11 @@ public class JAuthenticationFilter extends UsernamePasswordAuthenticationFilter 
                     .readValue(request.getInputStream(),AuthUserCommand.class);
             return getAuthenticationManager()
                     .authenticate(new UsernamePasswordAuthenticationToken(
-                            authUserCommand.getUsername(),
-                            authUserCommand.getPassword(),
+                            authUserCommand.username(),
+                            authUserCommand.password(),
                             new ArrayList<>()));
         } catch (IOException e) {
-            throw new UserNotFoundSecurityException();
+            throw new UserNotFoundSecurityException("Istifadəçi tapılmadı");
         }
     }
 

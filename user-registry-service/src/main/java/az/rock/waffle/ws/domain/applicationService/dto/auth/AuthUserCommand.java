@@ -1,11 +1,17 @@
 package az.rock.waffle.ws.domain.applicationService.dto.auth;
 
-import lombok.Builder;
-import lombok.Getter;
+import az.rock.waffle.ws.domain.applicationService.dto.Command;
+public record AuthUserCommand(
+        String username,
+        String password
+) implements Command {
+    public AuthUserCommand(String username,String password){
+        this.username = username;
+        this.password = password;
+    }
 
-@Getter
-@Builder
-public class AuthUserCommand {
-    private final String username;
-    private final String password;
+    @Override
+    public String toString() {
+        return this.username;
+    }
 }

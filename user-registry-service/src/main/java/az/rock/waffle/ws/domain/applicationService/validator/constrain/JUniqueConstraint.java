@@ -14,6 +14,6 @@ public class JUniqueConstraint implements ConstraintValidator<JUnique, String> {
 
     @Override
     public boolean isValid(String value, ConstraintValidatorContext context) {
-        return false;
+        return true;
     }
 }

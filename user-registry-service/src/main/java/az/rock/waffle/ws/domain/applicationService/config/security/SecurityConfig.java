@@ -23,9 +23,6 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     private final GUserDetailsService userDetailsService;
     private final AuthenticationEntryPoint authenticationEntryPoint;
 
-    @Value(value = "${rock.security-key}")
-    private String securityKey;
-
     @Value(value = "${rock.gateway.ip-address}")
     private String gateway_ip;
 

@@ -1,15 +1,13 @@
 package az.rock.waffle.ws.domain.applicationService.validator.constrain;
 
-import az.rock.waffle.ws.domain.applicationService.validator.anno.JNullable;
+import az.rock.waffle.ws.domain.applicationService.validator.anno.GFullName;
 
 import javax.validation.ConstraintValidator;
 import javax.validation.ConstraintValidatorContext;
 
-public class JNullableConstraint implements ConstraintValidator<JNullable, String> {
-
-
+public class GFullnameConstraint implements ConstraintValidator<GFullName,String> {
     @Override
-    public void initialize(JNullable constraintAnnotation) {
+    public void initialize(GFullName constraintAnnotation) {
         ConstraintValidator.super.initialize(constraintAnnotation);
     }
 

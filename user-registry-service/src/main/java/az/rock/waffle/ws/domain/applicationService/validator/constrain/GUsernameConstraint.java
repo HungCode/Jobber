@@ -15,6 +15,6 @@ public class GUsernameConstraint implements ConstraintValidator<GUsername, Strin
 
     @Override
     public boolean isValid(String value, ConstraintValidatorContext context) {
-        return false;
+        return true;
     }
 }

@@ -19,13 +19,16 @@ public class UserDataAccessMapper {
                 userEntity.getFirstName(),
                 userEntity.getLastName(),
                 userEntity.getPassword(),
-                userEntity.getEmail()
+                userEntity.getEmail(),
+                userEntity.getUserType()
         );
     }
 
     public UserEntity userToUserEntity(UserRoot userRoot) {
         return UserEntity.builder()
                 .id(userRoot.getId().getValue())
+                .finIdentify(userRoot.getFinIdentify())
+                .userType(userRoot.getUserType())
                 .username(userRoot.getUsername())
                 .firstName(userRoot.getFirstName())
                 .lastName(userRoot.getLastName())
