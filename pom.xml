@@ -23,9 +23,9 @@
         <module>recommend-service</module>
         <module>config-service</module>
         <module>common-service</module>
-        <module>payment-service</module>
         <module>company-service</module>
         <module>employee-service</module>
+        <module>wallet-service</module>
     </modules>
 
     <properties>

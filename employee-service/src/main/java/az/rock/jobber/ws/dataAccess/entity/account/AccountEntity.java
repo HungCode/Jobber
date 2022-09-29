@@ -23,6 +23,8 @@ public class AccountEntity extends MetaData {
     @GeneratedValue
     private UUID uuid;
 
+    private Boolean isPremium;
+
     @OneToOne
     private EmployeeEntity employee;
 
