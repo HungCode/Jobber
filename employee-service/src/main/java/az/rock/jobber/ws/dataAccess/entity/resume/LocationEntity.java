@@ -1,4 +1,4 @@
-package az.rock.jobber.ws.dataAccess.entity;
+package az.rock.jobber.ws.dataAccess.entity.resume;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -13,15 +13,15 @@ import java.util.UUID;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-public class LinkEntity {
+public class LocationEntity {
     @Id
     @GeneratedValue
     private UUID uuid;
 
-    @ManyToOne
-    private ResumeEntity resume;
+    @OneToOne
+    private EducationEntity  education;
 
-    private String linkName;
+    private String country;
 
-    private String link;
+    private String city;
 }

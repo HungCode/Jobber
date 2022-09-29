@@ -1,4 +1,4 @@
-package az.rock.jobber.ws.dataAccess.entity;
+package az.rock.jobber.ws.dataAccess.entity.resume;
 
 import az.rock.jobber.ws.valueObject.DegreeType;
 import lombok.AllArgsConstructor;

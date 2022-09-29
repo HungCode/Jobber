@@ -1,5 +1,6 @@
-package az.rock.jobber.ws.dataAccess.entity;
+package az.rock.jobber.ws.dataAccess.entity.resume;
 
+import az.rock.jobber.ws.dataAccess.entity.EmployeeEntity;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -18,7 +19,8 @@ public class ResumeEntity extends MetaData{
     @GeneratedValue
     private UUID uuid;
 
-    private UUID ownerUUID;
+    @OneToOne
+    private EmployeeEntity employee;
 
     @OneToOne
     private PersonInformationEntity personInformation;

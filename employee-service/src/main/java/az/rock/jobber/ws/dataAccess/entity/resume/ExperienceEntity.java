@@ -1,11 +1,13 @@
-package az.rock.jobber.ws.dataAccess.entity;
+package az.rock.jobber.ws.dataAccess.entity.resume;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import javax.persistence.*;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
 import java.util.UUID;
 
 @Entity
@@ -13,15 +15,8 @@ import java.util.UUID;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-public class LocationEntity {
+public class ExperienceEntity {
     @Id
     @GeneratedValue
     private UUID uuid;
-
-    @OneToOne
-    private EducationEntity  education;
-
-    private String country;
-
-    private String city;
 }
