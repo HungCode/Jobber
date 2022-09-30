@@ -9,7 +9,7 @@ import org.springframework.stereotype.Component;
 @Component
 public class UserDataMapper {
     public UserRoot createUserCommandToUser(CreateUserCommand createUserCommand) {
-        return new UserRoot(new UserId(createUserCommand.getCustomerId()),
+        return new UserRoot(new UserId(createUserCommand.getUserUUID()),
                 createUserCommand.getUsername(),
                 createUserCommand.getFirstName(),
                 createUserCommand.getLastName(),

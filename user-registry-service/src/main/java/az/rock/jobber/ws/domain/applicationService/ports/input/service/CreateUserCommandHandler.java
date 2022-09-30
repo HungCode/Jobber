@@ -31,10 +31,10 @@ public class CreateUserCommandHandler {
         UserCreatedEvent userCreatedEvent = this.userDomainService.validateAndInitializeUser(userRoot);
         UserRoot savedUserRoot = this.userRepository.createUser(userRoot);
         if (Objects.isNull(savedUserRoot)){
-            log.error("Could not save user with id: {}",createUserCommand.getCustomerId());
-            throw new UserDomainException("Could not save user with id: {}" + createUserCommand.getCustomerId());
+            log.error("Could not save user with id: {}",createUserCommand.getUserUUID());
+            throw new UserDomainException("Could not save user with id: {}" + createUserCommand.getUserUUID());
         }
-        log.info("Returning CustomerCreatedEvent for customer id: {}", createUserCommand.getCustomerId());
+        log.info("Returning CustomerCreatedEvent for customer id: {}", createUserCommand.getUserUUID());
         return userCreatedEvent;
     }
 
