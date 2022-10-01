@@ -76,7 +76,7 @@
 
         <!-- Modules -->
         <dependency>
-            <groupId>az.rock.waffle.ws</groupId>
+            <groupId>az.rock.jobber.ws</groupId>
             <artifactId>common-service</artifactId>
         </dependency>
 
