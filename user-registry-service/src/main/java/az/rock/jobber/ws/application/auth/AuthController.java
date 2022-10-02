@@ -20,7 +20,7 @@ public class AuthController {
     private final UserService userService;
 
     @JLogger
-    @GetMapping("/health")
+    @GetMapping("health")
     public ResponseEntity<SuccessGResponse> health(){
         return ResponseEntity.ok(successGResponseFactory.createSuccessGResponse());
     }

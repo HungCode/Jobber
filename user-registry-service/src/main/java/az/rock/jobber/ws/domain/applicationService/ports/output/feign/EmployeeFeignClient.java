@@ -7,8 +7,7 @@ import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-
-@FeignClient(name = "employee-service",url = "http://localhost:8082/employee-service",path = "emp/feign")
+@FeignClient(name = "employee-service",path = "/emp/feign")
 public interface EmployeeFeignClient extends EmployeeFeignSpec {
 
     @Override
@@ -18,4 +17,5 @@ public interface EmployeeFeignClient extends EmployeeFeignSpec {
     @Override
     @RequestMapping(method = RequestMethod.GET, value = "/health")
     GDataResponse<String> health();
+
 }

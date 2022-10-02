@@ -10,6 +10,7 @@ import az.rock.jobber.ws.domain.applicationService.ports.output.feign.EmployeeFe
 import az.rock.jobber.ws.domain.core.event.UserCreatedEvent;
 import az.rock.jobber.ws.exception.GRuntimeException;
 import lombok.RequiredArgsConstructor;
+import lombok.SneakyThrows;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -27,6 +28,7 @@ public class UserManager implements UserService {
 
     @Override
     @Transactional
+    @SneakyThrows(Exception.class)
     public CreateUserResponse createUser(CreateUserCommand userCommand) {
         UserCreatedEvent userCreatedEvent = this.userCommandHandler.createdEvent(userCommand);
         //TODO Publish edilmelidir kafkaya
