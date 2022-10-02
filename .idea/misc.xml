@@ -10,6 +10,11 @@
     <option name="ignoredFiles">
       <set>
         <option value="$PROJECT_DIR$/account-service/pom.xml" />
+        <option value="$PROJECT_DIR$/infrastructure/kafka/kafka-config-data/pom.xml" />
+        <option value="$PROJECT_DIR$/infrastructure/kafka/kafka-consumer/pom.xml" />
+        <option value="$PROJECT_DIR$/infrastructure/kafka/kafka-model/pom.xml" />
+        <option value="$PROJECT_DIR$/infrastructure/kafka/kafka-producer/pom.xml" />
+        <option value="$PROJECT_DIR$/kafka-service/pom.xml" />
         <option value="$PROJECT_DIR$/payment-service/pom.xml" />
         <option value="$PROJECT_DIR$/producer-service/pom.xml" />
         <option value="$PROJECT_DIR$/vacancy-service/pom.xml" />

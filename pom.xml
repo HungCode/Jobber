@@ -26,6 +26,7 @@
         <module>company-service</module>
         <module>employee-service</module>
         <module>wallet-service</module>
+        <module>infrastructure</module>
     </modules>
 
     <properties>
@@ -64,6 +65,10 @@
             <id>maven-central</id>
             <name>Maven Central</name>
             <url>https://repo.maven.apache.org/maven2/</url>
+        </repository>
+        <repository>
+            <id>confluent</id>
+            <url>https://packages.confluent.io/maven/</url>
         </repository>
     </repositories>
 
@@ -254,6 +259,7 @@
                 <artifactId>common-service</artifactId>
                 <version>${project.version}</version>
             </dependency>
+
         </dependencies>
     </dependencyManagement>
     <build>
