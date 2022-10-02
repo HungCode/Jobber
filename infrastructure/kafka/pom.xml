@@ -12,10 +12,6 @@
     <artifactId>kafka</artifactId>
     <packaging>pom</packaging>
     <modules>
-        <module>kafka-config-data</module>
-        <module>kafka-consumer</module>
-        <module>kafka-producer</module>
-        <module>kafka-model</module>
     </modules>
 
     <properties>
