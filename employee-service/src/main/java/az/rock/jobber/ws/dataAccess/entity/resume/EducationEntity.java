@@ -7,6 +7,7 @@ import lombok.Setter;
 
 import javax.persistence.*;
 import java.time.LocalDate;
+import java.util.Date;
 import java.util.UUID;
 
 @Entity
@@ -32,11 +33,11 @@ public class EducationEntity {
 
     @Column(columnDefinition = "START_DATE")
     @Temporal(TemporalType.DATE)
-    private LocalDate startDate;
+    private Date startDate;
 
     @Column(columnDefinition = "END_DATE")
     @Temporal(TemporalType.DATE)
-    private LocalDate endDate;
+    private Date endDate;
 
     @Lob
     private Byte[] file;

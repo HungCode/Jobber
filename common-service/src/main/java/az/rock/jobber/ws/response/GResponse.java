@@ -4,12 +4,14 @@ import java.time.ZoneId;
 import java.time.ZonedDateTime;
 import java.util.UUID;
 
-public abstract class GResponse {
-    private final UUID responseID;
-    private final Boolean success;
-    private final ZonedDateTime zonedDateTime;
-    private final String message;
-    private final String httpStatusCode;
+public class GResponse {
+    private  UUID responseID;
+    private  Boolean success;
+    private  ZonedDateTime zonedDateTime;
+    private  String message;
+    private  String httpStatusCode;
+
+    public GResponse(){}
 
     public GResponse(Boolean success, String message, String httpStatusCode) {
         this.responseID = UUID.randomUUID();
@@ -59,5 +61,25 @@ public abstract class GResponse {
 
     public String getHttpStatusCode() {
         return httpStatusCode;
+    }
+
+    public void setResponseID(UUID responseID) {
+        this.responseID = responseID;
+    }
+
+    public void setSuccess(Boolean success) {
+        this.success = success;
+    }
+
+    public void setZonedDateTime(ZonedDateTime zonedDateTime) {
+        this.zonedDateTime = zonedDateTime;
+    }
+
+    public void setMessage(String message) {
+        this.message = message;
+    }
+
+    public void setHttpStatusCode(String httpStatusCode) {
+        this.httpStatusCode = httpStatusCode;
     }
 }

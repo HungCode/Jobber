@@ -7,6 +7,7 @@ import lombok.Setter;
 
 import javax.persistence.*;
 import java.time.LocalDate;
+import java.util.Date;
 import java.util.List;
 import java.util.UUID;
 
@@ -28,7 +29,7 @@ public class PersonInformationEntity extends MetaData {
 
     @Column(columnDefinition = "BIRTH_DATE")
     @Temporal(TemporalType.DATE)
-    private LocalDate birthDay;
+    private Date birthDay;
 
     private String wasBorn;
 

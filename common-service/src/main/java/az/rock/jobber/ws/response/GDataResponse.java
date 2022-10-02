@@ -1,7 +1,9 @@
 package az.rock.jobber.ws.response;
 
-public abstract class GDataResponse <T> extends GResponse {
-    private final T data;
+public class GDataResponse <T> extends GResponse {
+    private  T data;
+
+    public GDataResponse(){super();}
 
     public GDataResponse(Boolean success, String message, String httpStatusCode,T data) {
         super(success, message, httpStatusCode);
@@ -20,5 +22,9 @@ public abstract class GDataResponse <T> extends GResponse {
 
     public T getData() {
         return this.data;
+    }
+
+    public void setData(T data) {
+        this.data = data;
     }
 }

@@ -10,6 +10,7 @@ import az.rock.jobber.ws.response.GResponse;
  * @version $Id: GDataResponse.java,v 1.1 2022/12/14 15:04:24 ;
  */
 public class SuccessGDataResponse<T> extends GDataResponse<T> {
+    public SuccessGDataResponse(){super();}
 
     public SuccessGDataResponse( String message, String httpStatusCode, T data) {
         super(true, message, httpStatusCode, data);
