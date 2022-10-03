@@ -1,22 +1,22 @@
 package az.rock.jobber.ws.messenger.response.factory;
 
-import az.rock.jobber.ws.messenger.response.GDataResponse;
-import az.rock.jobber.ws.messenger.response.GResponse;
-import az.rock.jobber.ws.messenger.response.fail.FailGDataResponse;
-import az.rock.jobber.ws.messenger.response.fail.FailGResponse;
+import az.rock.jobber.ws.messenger.response.GDataTransfer;
+import az.rock.jobber.ws.messenger.response.GTransfer;
+import az.rock.jobber.ws.messenger.response.fail.FailGDataTransfer;
+import az.rock.jobber.ws.messenger.response.fail.FailGTransfer;
 
 /**
  * @author <a href="mailto:mammadli.vugar@hotmail.com">Vugar Mammadli</a>
- * @see GDataResponse
- * @see GResponse
+ * @see GDataTransfer
+ * @see GTransfer
  * @version $Id: GDataResponse.java,v 1.1 2022/12/14 15:04:24 ;
  */
 public abstract class AbstractFailGResponseFactory<T> {
-    public abstract FailGResponse createFailGResponse();
-    public abstract FailGResponse createFailGResponse(String httpStatusCode);
-    public abstract FailGResponse createFailGResponse(String message, String httpStatusCode);
+    public abstract FailGTransfer createFailGResponse();
+    public abstract FailGTransfer createFailGResponse(String httpStatusCode);
+    public abstract FailGTransfer createFailGResponse(String message, String httpStatusCode);
 
-    public abstract FailGDataResponse<T> createFailGDataResponse(T data);
-    public abstract FailGDataResponse<T> createFailGDataResponse(String httpStatusCode, T data);
-    public abstract FailGDataResponse<T> createFailGDataResponse(String message, String httpStatusCode, T data);
+    public abstract FailGDataTransfer<T> createFailGDataResponse(T data);
+    public abstract FailGDataTransfer<T> createFailGDataResponse(String httpStatusCode, T data);
+    public abstract FailGDataTransfer<T> createFailGDataResponse(String message, String httpStatusCode, T data);
 }

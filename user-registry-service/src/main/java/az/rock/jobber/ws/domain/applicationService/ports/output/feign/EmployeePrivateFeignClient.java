@@ -4,8 +4,8 @@ import az.rock.jobber.ws.messenger.request.GRequest;
 import az.rock.jobber.ws.domain.applicationService.anno.Fallback;
 import az.rock.jobber.ws.domain.applicationService.anno.FallbackFactory;
 import az.rock.jobber.ws.domain.applicationService.exception.feign.JFeignException;
-import az.rock.jobber.ws.messenger.response.GDataResponse;
-import az.rock.jobber.ws.messenger.response.fail.FailGDataResponse;
+import az.rock.jobber.ws.messenger.response.GDataTransfer;
+import az.rock.jobber.ws.messenger.response.fail.FailGDataTransfer;
 import az.rock.jobber.ws.spec.employee.privates.EmployeePrivateFeignSpec;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.cloud.openfeign.FeignClient;
@@ -17,11 +17,11 @@ public interface EmployeePrivateFeignClient extends EmployeePrivateFeignSpec {
 
     @Override
     @RequestMapping(method = RequestMethod.POST, value = "/createEmp", consumes = "application/json")
-    GDataResponse<String> createEmployee(GRequest gRequest);
+    GDataTransfer<String> createEmployee(GRequest gRequest);
 
     @Override
     @RequestMapping(method = RequestMethod.GET, value = "/health")
-    GDataResponse<String> health();
+    GDataTransfer<String> health();
 
 }
 
@@ -44,15 +44,15 @@ class EmployeePrivateFeignClientFallback implements EmployeePrivateFeignClient {
     }
 
     @Override
-    public GDataResponse<String> createEmployee(GRequest gRequest) {
+    public GDataTransfer<String> createEmployee(GRequest gRequest) {
         if (throwable instanceof JFeignException jFeignException){
             log.error("Unknown Feign Exception");
         }
-        return new FailGDataResponse<>("Bilinməyən bir xəta oldu");
+        return new FailGDataTransfer<>("Bilinməyən bir xəta oldu");
     }
 
     @Override
-    public GDataResponse<String> health() {
+    public GDataTransfer<String> health() {
         return null;
     }
 }

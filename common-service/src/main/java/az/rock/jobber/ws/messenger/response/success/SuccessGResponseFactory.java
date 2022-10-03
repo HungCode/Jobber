@@ -1,44 +1,44 @@
 package az.rock.jobber.ws.messenger.response.success;
 
-import az.rock.jobber.ws.messenger.response.GDataResponse;
-import az.rock.jobber.ws.messenger.response.GResponse;
+import az.rock.jobber.ws.messenger.response.GDataTransfer;
+import az.rock.jobber.ws.messenger.response.GTransfer;
 import az.rock.jobber.ws.messenger.response.factory.AbstractSuccessGResponseFactory;
 
 /**
  * @author <a href="mailto:mammadli.vugar@hotmail.com">Vugar Mammadli</a>
- * @see GDataResponse
- * @see GResponse
+ * @see GDataTransfer
+ * @see GTransfer
  * @version $Id: GDataResponse.java,v 1.1 2022/12/14 15:04:24 ;
  */
 public final class SuccessGResponseFactory<T>  extends AbstractSuccessGResponseFactory<T> {
 
     @Override
-    public SuccessGResponse createSuccessGResponse() {
-        return new SuccessGResponse();
+    public SuccessGTransfer createSuccessGResponse() {
+        return new SuccessGTransfer();
     }
 
     @Override
-    public SuccessGResponse createSuccessGResponse(String httpStatusCode) {
-        return new SuccessGResponse(httpStatusCode);
+    public SuccessGTransfer createSuccessGResponse(String httpStatusCode) {
+        return new SuccessGTransfer(httpStatusCode);
     }
 
     @Override
-    public SuccessGResponse createSuccessGResponse(String message, String httpStatusCode) {
-        return new SuccessGResponse(message, httpStatusCode);
+    public SuccessGTransfer createSuccessGResponse(String message, String httpStatusCode) {
+        return new SuccessGTransfer(message, httpStatusCode);
     }
 
     @Override
-    public SuccessGDataResponse<T> createSuccessGDataResponse(T data) {
-        return new SuccessGDataResponse<>(data);
+    public SuccessGDataTransfer<T> createSuccessGDataResponse(T data) {
+        return new SuccessGDataTransfer<>(data);
     }
 
     @Override
-    public SuccessGDataResponse<T> createSuccessGDataResponse(String httpStatusCode, T data) {
-        return new SuccessGDataResponse<>(httpStatusCode, data);
+    public SuccessGDataTransfer<T> createSuccessGDataResponse(String httpStatusCode, T data) {
+        return new SuccessGDataTransfer<>(httpStatusCode, data);
     }
 
     @Override
-    public SuccessGDataResponse<T> createSuccessGDataResponse(String message, String httpStatusCode, T data) {
-        return new SuccessGDataResponse<>(message, httpStatusCode, data);
+    public SuccessGDataTransfer<T> createSuccessGDataResponse(String message, String httpStatusCode, T data) {
+        return new SuccessGDataTransfer<>(message, httpStatusCode, data);
     }
 }

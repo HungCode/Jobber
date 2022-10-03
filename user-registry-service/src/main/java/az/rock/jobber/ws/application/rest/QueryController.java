@@ -2,7 +2,7 @@ package az.rock.jobber.ws.application.rest;
 
 import az.rock.jobber.ws.container.aspect.anno.JLogger;
 import az.rock.jobber.ws.domain.applicationService.ports.input.service.abst.UserService;
-import az.rock.jobber.ws.messenger.response.GResponse;
+import az.rock.jobber.ws.messenger.response.GTransfer;
 import az.rock.jobber.ws.messenger.response.ResponseData;
 import az.rock.jobber.ws.messenger.response.factory.AbstractSuccessGResponseFactory;
 import lombok.RequiredArgsConstructor;
@@ -19,7 +19,7 @@ public class QueryController {
 
     @JLogger
     @GetMapping(value = "apply")
-    public ResponseEntity<GResponse> apply() {
+    public ResponseEntity<GTransfer> apply() {
         return ResponseEntity.ok(responseFactory.createSuccessGResponse());
     }
 

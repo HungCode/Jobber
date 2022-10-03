@@ -1,29 +1,29 @@
 package az.rock.jobber.ws.messenger.response.wrapper;
 
 import az.rock.jobber.ws.exception.GRuntimeException;
-import az.rock.jobber.ws.messenger.response.GDataResponse;
+import az.rock.jobber.ws.messenger.response.GDataTransfer;
 
 import java.util.Objects;
 import java.util.function.Consumer;
 
-public final class GDataWrapper <R extends GDataResponse<B>,B>{
+public final class GResponseBreaker<R extends GDataTransfer<B>,B>{
     private GRuntimeException exception = new GRuntimeException();
     private Consumer<B> consumer = (responseBody)->{};
     private final R response;
     private final B responseBody;
 
 
-    public GDataWrapper(R response){
+    public GResponseBreaker(R response){
         this.response = response;
         this.responseBody = response.getData();
     }
 
-    public GDataWrapper(R response, Consumer<B> consumer){
+    public GResponseBreaker(R response, Consumer<B> consumer){
         this(response);
         this.consumer = consumer;
     }
 
-    public GDataWrapper(R response, GRuntimeException exception){
+    public GResponseBreaker(R response, GRuntimeException exception){
         this(response);
         this.exception = exception;
     }

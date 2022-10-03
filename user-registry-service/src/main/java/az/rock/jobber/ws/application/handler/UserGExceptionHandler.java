@@ -6,7 +6,7 @@ import az.rock.jobber.ws.exception.GException;
 import az.rock.jobber.ws.handler.GExceptionHandler;
 import az.rock.jobber.ws.messenger.response.ResponseData;
 import az.rock.jobber.ws.messenger.response.factory.AbstractFailGResponseFactory;
-import az.rock.jobber.ws.messenger.response.fail.FailGDataResponse;
+import az.rock.jobber.ws.messenger.response.fail.FailGDataTransfer;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
@@ -23,7 +23,7 @@ public class UserGExceptionHandler extends GExceptionHandler {
 
     @ResponseBody
     @ExceptionHandler(value = {GException.class})
-    public ResponseEntity<FailGDataResponse<?>> handleException(GException userDomainException) {
+    public ResponseEntity<FailGDataTransfer<?>> handleException(GException userDomainException) {
         log.error(userDomainException.getMessage(), userDomainException);
         return new ResponseEntity<>(
                 this.responseFactory
@@ -32,7 +32,7 @@ public class UserGExceptionHandler extends GExceptionHandler {
 
     @ResponseBody
     @ExceptionHandler(value = {UserNotFoundSecurityException.class})
-    public ResponseEntity<FailGDataResponse<?>> userNotFoundSecurityException(UserNotFoundSecurityException userDomainException) {
+    public ResponseEntity<FailGDataTransfer<?>> userNotFoundSecurityException(UserNotFoundSecurityException userDomainException) {
         log.error(userDomainException.getMessage(), userDomainException);
         return new ResponseEntity<>(
                 this.responseFactory
@@ -41,7 +41,7 @@ public class UserGExceptionHandler extends GExceptionHandler {
 
     @ResponseBody
     @ExceptionHandler(value = {UnknownSecurityException.class})
-    public ResponseEntity<FailGDataResponse<?>> userDomainException(UnknownSecurityException userDomainException) {
+    public ResponseEntity<FailGDataTransfer<?>> userDomainException(UnknownSecurityException userDomainException) {
         log.error(userDomainException.getMessage(), userDomainException);
         return new ResponseEntity<>(
                 this.responseFactory
