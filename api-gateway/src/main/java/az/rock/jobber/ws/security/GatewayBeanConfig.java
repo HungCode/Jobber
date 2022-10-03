@@ -1,8 +1,8 @@
 package az.rock.jobber.ws.security;
 
-import az.rock.jobber.ws.response.ResponseData;
-import az.rock.jobber.ws.response.fail.FailGResponseFactory;
-import az.rock.jobber.ws.response.factory.AbstractFailGResponseFactory;
+import az.rock.jobber.ws.messenger.response.ResponseData;
+import az.rock.jobber.ws.messenger.response.fail.FailGResponseFactory;
+import az.rock.jobber.ws.messenger.response.factory.AbstractFailGResponseFactory;
 import org.springframework.cloud.gateway.route.RouteLocator;
 import org.springframework.cloud.gateway.route.builder.RouteLocatorBuilder;
 import org.springframework.context.annotation.Bean;

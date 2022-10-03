@@ -4,9 +4,9 @@ import az.rock.jobber.ws.domain.applicationService.exception.security.UnknownSec
 import az.rock.jobber.ws.domain.applicationService.exception.security.UserNotFoundSecurityException;
 import az.rock.jobber.ws.exception.GException;
 import az.rock.jobber.ws.handler.GExceptionHandler;
-import az.rock.jobber.ws.response.ResponseData;
-import az.rock.jobber.ws.response.factory.AbstractFailGResponseFactory;
-import az.rock.jobber.ws.response.fail.FailGDataResponse;
+import az.rock.jobber.ws.messenger.response.ResponseData;
+import az.rock.jobber.ws.messenger.response.factory.AbstractFailGResponseFactory;
+import az.rock.jobber.ws.messenger.response.fail.FailGDataResponse;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;

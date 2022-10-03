@@ -1,12 +1,12 @@
 package az.rock.jobber.ws.domain.applicationService.ports.input.service.conc;
 
-import az.rock.jobber.ws.apiObject.CreateResumeRequest;
+import az.rock.jobber.ws.messenger.request.GRequest;
 import az.rock.jobber.ws.domain.applicationService.ports.input.service.abst.UserService;
 import az.rock.jobber.ws.domain.applicationService.dto.create.CreateUserCommand;
 import az.rock.jobber.ws.domain.applicationService.dto.create.CreateUserResponse;
 import az.rock.jobber.ws.domain.applicationService.mapper.UserDataMapper;
 import az.rock.jobber.ws.domain.applicationService.ports.input.service.CreateUserCommandHandler;
-import az.rock.jobber.ws.domain.applicationService.ports.output.feign.EmployeeFeignClient;
+import az.rock.jobber.ws.domain.applicationService.ports.output.feign.EmployeePrivateFeignClient;
 import az.rock.jobber.ws.domain.core.event.UserCreatedEvent;
 import az.rock.jobber.ws.exception.GRuntimeException;
 import lombok.RequiredArgsConstructor;
@@ -24,7 +24,7 @@ public class UserManager implements UserService {
     private final CreateUserCommandHandler userCommandHandler;
     private final UserDataMapper userDataMapper;
     //private final UserMessagePublisher userMessagePublisher;
-    private final EmployeeFeignClient employeeFeignClient;
+    private final EmployeePrivateFeignClient employeeFeignClient;
 
     @Override
     @Transactional
@@ -32,7 +32,7 @@ public class UserManager implements UserService {
     public CreateUserResponse createUser(CreateUserCommand userCommand) {
         UserCreatedEvent userCreatedEvent = this.userCommandHandler.createdEvent(userCommand);
         //TODO Publish edilmelidir kafkaya
-        var response = this.employeeFeignClient.createEmployee(new CreateResumeRequest(userCommand.getUserUUID()));
+        var response = this.employeeFeignClient.createEmployee(new GRequest(userCommand.getUserUUID()));
         if (!response.getSuccess()) throw new GRuntimeException();
         return this.userDataMapper.userToCreateUserResponse(userCreatedEvent.getUser(),"User saved successfully!");
     }
