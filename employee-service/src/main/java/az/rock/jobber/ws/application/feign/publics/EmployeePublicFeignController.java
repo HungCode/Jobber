@@ -1,6 +1,6 @@
 package az.rock.jobber.ws.application.feign.publics;
 
-import az.rock.jobber.ws.messenger.response.GDataTransfer;
+import az.rock.jobber.ws.messenger.transfer.GDataTransfer;
 import az.rock.jobber.ws.spec.employee.publics.EmployeePublicFeignSpec;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;

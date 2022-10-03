@@ -2,9 +2,9 @@ package az.rock.jobber.ws.application.rest;
 
 import az.rock.jobber.ws.container.aspect.anno.JLogger;
 import az.rock.jobber.ws.domain.applicationService.ports.input.service.abst.UserService;
-import az.rock.jobber.ws.messenger.response.GTransfer;
-import az.rock.jobber.ws.messenger.response.ResponseData;
-import az.rock.jobber.ws.messenger.response.factory.AbstractSuccessGResponseFactory;
+import az.rock.jobber.ws.messenger.transfer.GTransfer;
+import az.rock.jobber.ws.messenger.transfer.ResponseData;
+import az.rock.jobber.ws.messenger.transfer.factory.AbstractSuccessGResponseFactory;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;

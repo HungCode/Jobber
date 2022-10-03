@@ -2,8 +2,8 @@ package az.rock.jobber.ws.application.feign.privates;
 
 import az.rock.jobber.ws.messenger.request.GRequest;
 import az.rock.jobber.ws.spec.employee.privates.EmployeePrivateFeignSpec;
-import az.rock.jobber.ws.messenger.response.GDataTransfer;
-import az.rock.jobber.ws.messenger.response.success.SuccessGDataTransfer;
+import az.rock.jobber.ws.messenger.transfer.GDataTransfer;
+import az.rock.jobber.ws.messenger.transfer.response.success.SuccessGDataTransfer;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.RequestMapping;

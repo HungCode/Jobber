@@ -7,8 +7,6 @@ import az.rock.jobber.ws.domain.applicationService.mapper.UserDataMapper;
 import az.rock.jobber.ws.domain.applicationService.ports.input.service.CreateUserCommandHandler;
 import az.rock.jobber.ws.domain.applicationService.ports.output.feign.EmployeePrivateFeignClient;
 import az.rock.jobber.ws.domain.core.event.UserCreatedEvent;
-import az.rock.jobber.ws.messenger.response.GTransfer;
-import az.rock.jobber.ws.messenger.response.wrapper.GResponseBreaker;
 import lombok.RequiredArgsConstructor;
 import lombok.SneakyThrows;
 import lombok.extern.slf4j.Slf4j;

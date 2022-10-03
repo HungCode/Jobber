@@ -1,7 +1,7 @@
 package az.rock.jobber.ws.domain.applicationService.dto.create;
 
 import az.rock.jobber.ws.domain.applicationService.dto.Response;
-import az.rock.jobber.ws.messenger.response.ResponseData;
+import az.rock.jobber.ws.messenger.transfer.ResponseData;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;

@@ -1,7 +1,8 @@
-package az.rock.jobber.ws.messenger.response.fail;
+package az.rock.jobber.ws.messenger.transfer.response.fail;
 
-import az.rock.jobber.ws.messenger.response.GDataTransfer;
-import az.rock.jobber.ws.messenger.response.GTransfer;
+import az.rock.jobber.ws.messenger.transfer.GDataTransfer;
+import az.rock.jobber.ws.messenger.transfer.GTransfer;
+import az.rock.jobber.ws.messenger.transfer.response.GResponseDataTransfer;
 
 /**
  * @author <a href="mailto:mammadli.vugar@hotmail.com">Vugar Mammadli</a>
@@ -9,7 +10,7 @@ import az.rock.jobber.ws.messenger.response.GTransfer;
  * @see GTransfer
  * @version $Id: GDataResponse.java,v 1.1 2022/12/14 15:04:24 ;
  */
-public class FailGDataTransfer<T> extends GDataTransfer<T> {
+public class FailGDataTransfer<T> extends GResponseDataTransfer<T> {
 
     public FailGDataTransfer() {
         super();

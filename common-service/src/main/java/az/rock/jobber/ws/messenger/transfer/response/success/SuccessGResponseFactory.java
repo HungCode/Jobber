@@ -1,8 +1,8 @@
-package az.rock.jobber.ws.messenger.response.success;
+package az.rock.jobber.ws.messenger.transfer.response.success;
 
-import az.rock.jobber.ws.messenger.response.GDataTransfer;
-import az.rock.jobber.ws.messenger.response.GTransfer;
-import az.rock.jobber.ws.messenger.response.factory.AbstractSuccessGResponseFactory;
+import az.rock.jobber.ws.messenger.transfer.GDataTransfer;
+import az.rock.jobber.ws.messenger.transfer.GTransfer;
+import az.rock.jobber.ws.messenger.transfer.factory.AbstractSuccessGResponseFactory;
 
 /**
  * @author <a href="mailto:mammadli.vugar@hotmail.com">Vugar Mammadli</a>

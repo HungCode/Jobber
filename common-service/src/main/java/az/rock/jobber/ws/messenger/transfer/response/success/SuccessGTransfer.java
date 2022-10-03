@@ -1,8 +1,9 @@
-package az.rock.jobber.ws.messenger.response.success;
+package az.rock.jobber.ws.messenger.transfer.response.success;
 
-import az.rock.jobber.ws.messenger.response.GTransfer;
+import az.rock.jobber.ws.messenger.transfer.GTransfer;
+import az.rock.jobber.ws.messenger.transfer.response.GResponseTransfer;
 
-public final class SuccessGTransfer extends GTransfer {
+public final class SuccessGTransfer extends GResponseTransfer {
     public SuccessGTransfer() {
         super(true);
     }
