@@ -51,7 +51,8 @@ class EmployeeFeignClientFallback implements EmployeeFeignClient{
         if (throwable instanceof JFeignException jFeignException){
             log.error("Unknown Feign Exception");
         }
-        return new FailGDataResponse<>("Bilinməyən bir xəta oldu");
+        //TODO MessageProvider isdifade edilmelidir
+        return new FailGDataResponse<>("Bilinməyən bir problem oldu. :( Hal hazırda həll etməyə çalışırıq");
     }
 
     @Override
