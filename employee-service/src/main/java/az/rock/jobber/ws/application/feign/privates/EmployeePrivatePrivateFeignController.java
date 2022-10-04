@@ -2,7 +2,7 @@ package az.rock.jobber.ws.application.feign.privates;
 
 import az.rock.jobber.ws.messenger.transfer.request.GRequestDataTransfer;
 import az.rock.jobber.ws.messenger.transfer.response.GResponseDataTransfer;
-import az.rock.jobber.ws.spec.employee.privates.EmployeePrivateFeignSpec;
+import az.rock.jobber.ws.spec.employee.feign.privates.EmployeePrivateFeignSpec;
 import az.rock.jobber.ws.messenger.transfer.response.success.SuccessGDataTransfer;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;

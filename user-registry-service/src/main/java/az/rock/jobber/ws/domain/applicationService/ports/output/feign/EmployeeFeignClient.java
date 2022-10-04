@@ -1,13 +1,8 @@
 package az.rock.jobber.ws.domain.applicationService.ports.output.feign;
 
-import az.rock.jobber.ws.domain.applicationService.anno.Fallback;
-import az.rock.jobber.ws.domain.applicationService.anno.FallbackFactory;
-import az.rock.jobber.ws.domain.applicationService.exception.feign.JFeignException;
 import az.rock.jobber.ws.messenger.transfer.request.GRequestDataTransfer;
 import az.rock.jobber.ws.messenger.transfer.response.GResponseDataTransfer;
-import az.rock.jobber.ws.messenger.transfer.response.fail.FailGDataTransfer;
-import az.rock.jobber.ws.spec.employee.privates.EmployeePrivateFeignSpec;
-import lombok.extern.slf4j.Slf4j;
+import az.rock.jobber.ws.spec.employee.feign.privates.EmployeePrivateFeignSpec;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;

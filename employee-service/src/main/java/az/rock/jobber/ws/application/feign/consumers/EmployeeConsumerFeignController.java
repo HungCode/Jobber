@@ -1,7 +1,7 @@
 package az.rock.jobber.ws.application.feign.consumers;
 
 import az.rock.jobber.ws.messenger.transfer.GDataTransfer;
-import az.rock.jobber.ws.spec.employee.consumer.EmployeeConsumerFeignSpec;
+import az.rock.jobber.ws.spec.employee.feign.consumer.EmployeeConsumerFeignSpec;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.RequestMapping;

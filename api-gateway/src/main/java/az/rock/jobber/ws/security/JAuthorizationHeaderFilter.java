@@ -60,7 +60,6 @@ public class JAuthorizationHeaderFilter extends AbstractGatewayFilterFactory<JAu
         }catch (MalformedJwtException malformedJwtException){
             throw new GAuthenticationException();
         }
-
         return Objects.nonNull(subject) || subject.isEmpty();
     }
 }
