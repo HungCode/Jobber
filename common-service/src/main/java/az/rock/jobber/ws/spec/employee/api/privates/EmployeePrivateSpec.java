@@ -2,9 +2,7 @@ package az.rock.jobber.ws.spec.employee.api.privates;
 
 import az.rock.jobber.ws.messenger.transfer.request.GRequestDataTransfer;
 import az.rock.jobber.ws.messenger.transfer.response.success.SuccessGDataTransfer;
-import az.rock.jobber.ws.spec.annotation.ApiSpec;
-import az.rock.jobber.ws.spec.annotation.GDelete;
-import az.rock.jobber.ws.spec.annotation.GGet;
+import az.rock.jobber.ws.spec.annotation.*;
 
 
 @ApiSpec(uri = "/employee/private/api")
@@ -27,5 +25,12 @@ public interface EmployeePrivateSpec {
     @GDelete(api = "/clearOffers",desc = "Private olaraq isdifadeciye teklif verenlerin tarixcesini temizlemek ucundur")
     SuccessGDataTransfer<?> clearOffers(GRequestDataTransfer<?> requestDataTransfer);
 
+    @GPut(api = "/updateSettings",desc = "Private olaraq isdifadeciye settings ayarlayir")
+    SuccessGDataTransfer<?> updateSettings(GRequestDataTransfer<?> requestDataTransfer);
 
+    @GPost(api = "/createAddress",desc = "")
+    SuccessGDataTransfer<?> createAddress(GRequestDataTransfer<?> requestDataTransfer);
+
+    @GPut(api = "/updateAddress",desc = "")
+    SuccessGDataTransfer<?> updateAddress(GRequestDataTransfer<?> requestDataTransfer);
 }
