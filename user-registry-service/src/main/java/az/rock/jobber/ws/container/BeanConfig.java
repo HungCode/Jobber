@@ -1,10 +1,10 @@
 package az.rock.jobber.ws.container;
 
-import az.rock.jobber.ws.response.ResponseData;
-import az.rock.jobber.ws.response.factory.AbstractFailGResponseFactory;
-import az.rock.jobber.ws.response.factory.AbstractSuccessGResponseFactory;
-import az.rock.jobber.ws.response.fail.FailGResponseFactory;
-import az.rock.jobber.ws.response.success.SuccessGResponseFactory;
+import az.rock.jobber.ws.messenger.transfer.ResponseData;
+import az.rock.jobber.ws.messenger.transfer.factory.AbstractFailGResponseFactory;
+import az.rock.jobber.ws.messenger.transfer.factory.AbstractSuccessGResponseFactory;
+import az.rock.jobber.ws.messenger.transfer.response.fail.FailGResponseFactory;
+import az.rock.jobber.ws.messenger.transfer.response.success.SuccessGResponseFactory;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
