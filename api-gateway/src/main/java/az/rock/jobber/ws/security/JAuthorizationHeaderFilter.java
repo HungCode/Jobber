@@ -1,6 +1,7 @@
 package az.rock.jobber.ws.security;
 
 import az.rock.jobber.ws.exception.GAuthenticationException;
+import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.MalformedJwtException;
 import org.springframework.beans.factory.annotation.Value;
@@ -52,14 +53,21 @@ public class JAuthorizationHeaderFilter extends AbstractGatewayFilterFactory<JAu
     private boolean isValidToken(String token){
         String subject = "";
         try {
-            subject = Jwts.parser()
+            Claims claims = Jwts.parser()
                     .setSigningKey(this.tokenKey)
                     .parseClaimsJws(token)
-                    .getBody()
+                    .getBody();
+
+            subject = claims
                     .getSubject();
+
+            String type = (String) claims.get("user");
+            if(!type.equals("COMPANY") && !type.equals("EMPLOYEE")){
+                throw new GAuthenticationException("Invalid Json Token");
+            }
         }catch (MalformedJwtException malformedJwtException){
             throw new GAuthenticationException();
         }
-        return Objects.nonNull(subject) || subject.isEmpty();
+        return Objects.nonNull(subject) || !subject.isEmpty();
     }
 }

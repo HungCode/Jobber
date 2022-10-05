@@ -13,7 +13,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-    @RequestMapping(value = "/users/auth/")
+@RequestMapping(value = "/users/auth/")
 @RequiredArgsConstructor
 public class AuthController {
     private final AbstractSuccessGResponseFactory<ResponseData> successGResponseFactory;
@@ -31,4 +31,5 @@ public class AuthController {
         return new ResponseEntity<>(this.successGResponseFactory
                 .createSuccessGDataResponse(this.userService.createUser(createUserCommand)), HttpStatus.CREATED);
     }
+
 }

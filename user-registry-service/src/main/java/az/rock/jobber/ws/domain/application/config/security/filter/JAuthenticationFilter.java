@@ -20,6 +20,8 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.HashMap;
+import java.util.Map;
 
 public class JAuthenticationFilter extends UsernamePasswordAuthenticationFilter {
 
@@ -49,10 +51,13 @@ public class JAuthenticationFilter extends UsernamePasswordAuthenticationFilter 
     protected void successfulAuthentication(HttpServletRequest request, HttpServletResponse response,
                                             FilterChain chain, Authentication authResult) throws IOException, ServletException {
         UserRoot userRoot = this.gUserDetailsService.matches(authResult);
+        Map<String,Object> claims = new HashMap<>();
+        claims.put("user",userRoot.getUserType().toString());
         String token = Jwts.builder()
                 .setSubject(userRoot.getFinIdentify().toString())
                 .setExpiration(new Date(System.currentTimeMillis() + Long.parseLong(this.gUserDetailsService.getTokenExpDate())))
                 .signWith(SignatureAlgorithm.HS512,this.gUserDetailsService.getSecurityKey())
+                .setClaims(claims)
                 .compact();
         response.addHeader("Token",token);
         response.addHeader("ID", userRoot.getId().toString());
