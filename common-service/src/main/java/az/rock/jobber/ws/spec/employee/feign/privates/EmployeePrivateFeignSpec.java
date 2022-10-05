@@ -6,6 +6,6 @@ import az.rock.jobber.ws.spec.annotation.ApiSpec;
 
 @ApiSpec(uri = "/employee/private/feign")
 public interface EmployeePrivateFeignSpec {
-    public GResponseDataTransfer<String> health();
-    public GResponseDataTransfer<String> createEmployee(GRequestDataTransfer<String> createResumeRequest);
+    GResponseDataTransfer<String> health();
+    GResponseDataTransfer<String> createEmployee(GRequestDataTransfer<String> createResumeRequest);
 }
