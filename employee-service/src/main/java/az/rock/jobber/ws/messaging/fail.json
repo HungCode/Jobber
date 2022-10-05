@@ -1,0 +1,14 @@
+[
+  {
+    "message_scheme": {
+      "code": "F_0000000000000001",
+      "hasRegex": false,
+      "regexExpression": "^",
+      "text": {
+        "en": "Opps :( Something went wrong",
+        "az": "Birşeylər yolunda getmədi :( ",
+        "ru": "что-то пошло не так"
+      }
+    }
+  }
+]

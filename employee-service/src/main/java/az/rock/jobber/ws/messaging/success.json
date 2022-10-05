@@ -1,0 +1,14 @@
+[
+  {
+    "message_scheme": {
+      "code": "S_0000000000000001",
+      "hasRegex": false,
+      "regexExpression": "^",
+      "text": {
+        "en": "Welcome to RockSystem",
+        "az": "Rock sisteminə xoş gəldiniz",
+        "ru": "Добро пожаловать в РокСистем"
+      }
+    }
+  }
+]

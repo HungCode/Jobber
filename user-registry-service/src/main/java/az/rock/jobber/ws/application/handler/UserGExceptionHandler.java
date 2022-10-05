@@ -1,7 +1,7 @@
 package az.rock.jobber.ws.application.handler;
 
-import az.rock.jobber.ws.domain.applicationService.exception.security.UnknownSecurityException;
-import az.rock.jobber.ws.domain.applicationService.exception.security.UserNotFoundSecurityException;
+import az.rock.jobber.ws.domain.application.exception.security.UnknownSecurityException;
+import az.rock.jobber.ws.domain.application.exception.security.UserNotFoundSecurityException;
 import az.rock.jobber.ws.exception.GException;
 import az.rock.jobber.ws.handler.GExceptionHandler;
 import az.rock.jobber.ws.messenger.transfer.ResponseData;

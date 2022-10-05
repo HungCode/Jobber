@@ -1,8 +1,8 @@
 package az.rock.jobber.ws.application.auth;
 
 import az.rock.jobber.ws.container.aspect.anno.JLogger;
-import az.rock.jobber.ws.domain.applicationService.dto.create.CreateUserCommand;
-import az.rock.jobber.ws.domain.applicationService.ports.input.service.abst.UserService;
+import az.rock.jobber.ws.domain.application.dto.create.CreateUserCommand;
+import az.rock.jobber.ws.domain.application.ports.input.service.abst.UserService;
 import az.rock.jobber.ws.messenger.transfer.GDataTransfer;
 import az.rock.jobber.ws.messenger.transfer.ResponseData;
 import az.rock.jobber.ws.messenger.transfer.factory.AbstractSuccessGResponseFactory;
